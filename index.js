@@ -64,6 +64,7 @@ app.listen(port, () => {
               storeinfo.type = 'walmart';
               stores.push(storeinfo);
           });
+          stores.shift();
           res.send(stores);
       });
 
