@@ -62,10 +62,12 @@ app.listen(port, () => {
               storeinfo.price = storeinfo.price.replace(' *\n', '');
               }
               storeinfo.type = 'walmart';
+              if (storeinfo.address !== null){
               stores.push(storeinfo);
+              }
           });
           stores.shift();
-          res.send(stores);
+          res.json(stores);
       });
 
     });
