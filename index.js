@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+var port = process.env.PORT || 8080;
+
 var request = require('request');
 var cheerio = require("cheerio");
 var qs = require('querystring');
@@ -14,7 +16,7 @@ var options = {
 
   app.use(express.static(__dirname + '/View'));
 
-app.listen(8000, () => {
+app.listen(port, () => {
     console.log('Server started!');
   });
 
