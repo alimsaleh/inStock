@@ -17,19 +17,19 @@ var options = {
   app.use(express.static(__dirname + '/View'));
 
 app.listen(port, () => {
-    console.log('Server started!');
+    //console.log('Server started!');
   });
 
 
   app.route('/api').get((req, res) => {
       options.url = "http://www.asinlab.com/php/convertfromasin.php?asin_num="+req.query.asin+"&id_type=UPC&bulk=false&x=false";
-    console.log(req.query.asin);
+    //console.log(req.query.asin);
     request.get(options, function (error, response, body) {
-    console.log('error:', error); // Print the error if one occurred
-    console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+    //console.log('error:', error); // Print the error if one occurred
+    //console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
     $ = cheerio.load(body);
     upcnum = $('#bulk > tbody > tr:nth-child(2) > td:nth-child(3)').text();
-    console.log('body:', upcnum); 
+    //console.log('body:', upcnum); 
 
     request.post({
         url:     'https://brickseek.com/walmart-inventory-checker/',
@@ -44,7 +44,7 @@ app.listen(port, () => {
             'Referer' : 'https://brickseek.com/walmart-inventory-checker/',
         }
       }, function(error, response, body){
-        console.log(body);
+        //console.log(body);
         $ = cheerio.load(body);
         
         storeinfo = {};
