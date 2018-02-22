@@ -83,7 +83,6 @@ app.route('/api').get((req, res) => {
 
       });
 
-      stores.shift();
       res.json(stores);
 
     });
