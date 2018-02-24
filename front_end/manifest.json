@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+
+  "name": "itemFinder",
+  "description": "This extension will help you find items in nearby stocks",
+  "version": "1.0",
+  "content_scripts": [
+    {
+      "matches": ["*://*.amazon.com/*"],
+      "js": ["jquery-3.3.1.min.js", "content.js"]
+    }
+  ],
+  "permissions": ["tabs", "*://*.herokuapp.com/*"],
+  "browser_action": {
+    "default_icon": "itemFinderLogo.png",
+    "default_popup": "popup.html",
+    "default_title": "get items nearby"
+  }
+}

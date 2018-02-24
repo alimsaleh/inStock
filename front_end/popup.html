@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <title>itemFinder</title>
+    <!-- Scripts -->
+    <script src="jquery-3.3.1.min.js"></script>
+		<script src="bootstrap.min.js"></script>
+    <script src="popup.js"></script>
+
+    <!-- Cascading Style Sheets -->
+		<link href="bootstrap.min.css" rel="stylesheet">
+
+    <!-- custom styles -->
+    <style>
+      body{
+        min-width: 550px;
+      }
+      .store-btn {
+        width: 100px;
+      }
+      .store-adr {
+        text-align: center;
+      }
+      .btn:not(:disabled):not(.disabled) {
+        cursor: default;
+      }
+      .topForm {
+        margin-bottom: 10px;
+        margin-left: 10px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <h1>itemFinder</h1>
+
+    <p id="asinNum"></p>
+
+    <div class="topForm">
+      <input type="text" name="" value="" placeholder="Zip Code"> within
+      <input type="number" name="" value=""> miles
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <div id="storesList">
+      <table id="storesTable" class="table table-striped">
+        <tbody id="storesTableBody">
+          <!-- <tr>
+            <td><img src="walmart.png" alt="" class="img-fluid"></td>
+            <td valign="middle"><button type="button" class="btn btn-success store-btn">Success</button></td>
+            <td valign="middle"><button type="button" class="btn btn-info store-btn">Info</button></td>
+            <td valign="middle"><button type="button" class="btn btn-warning store-btn">Warning</button></td>
+          </tr>
+          <tr>
+            <td colspan="4"><p class="store-adr">5851 Mercury Dr, Dearborn, MI 48126</p></td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
