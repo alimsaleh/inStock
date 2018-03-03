@@ -13,9 +13,15 @@ $( document ).ready(function() {
     $('#searchBtn').click(function () {
        console.log("Im searching!");
        var asinNum = $('#asinNum').text();
-       $.get( "https://radiant-taiga-46129.herokuapp.com/api", {asin: asinNum} )
+       var zip = $("#searchBar").val();
+       $('#storesList').append('<svg id="loadIcon" width="70%" height="70%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-eclipse"><path ng-attr-d="{{config.pathCmd}}" ng-attr-fill="{{config.color}}" stroke="none" d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50" fill="#3f8fc5"><animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 51;360 50 51" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform></path></svg>');
+       $.get( "https://radiant-taiga-46129.herokuapp.com/api", {asin: asinNum, zip: zip} )
         .done(function( data ) {
           console.log( "Data Loaded: " + data );
+          $("#loadIcon").remove();
+          if (!data.length) {
+            $("#storesTableBody").append('<tr><td><h3 class="store-adr">No results.</h3></td></tr>');
+          }
           data.forEach(function(store) {
             console.log(store.address + " " + store.quantity);
             //$("#storesList").append("<p>"+store.address+" "+store.ditance+" "+store.quantity+" "+store.price+" "+store.type+"</p>");

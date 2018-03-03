@@ -8,38 +8,23 @@
     <script src="popup.js"></script>
 
     <!-- Cascading Style Sheets -->
-		<link href="bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="popup.css" rel="stylesheet">
 
     <!-- custom styles -->
-    <style>
-      body{
-        min-width: 550px;
-      }
-      .store-btn {
-        width: 100px;
-      }
-      .store-adr {
-        text-align: center;
-      }
-      .btn:not(:disabled):not(.disabled) {
-        cursor: default;
-      }
-      .topForm {
-        margin-bottom: 10px;
-        margin-left: 10px;
-      }
-    </style>
 
   </head>
   <body>
-    <h1>itemFinder</h1>
+    <h1 id="title">itemFinder</h1>
 
     <p id="asinNum"></p>
-
-    <div class="topForm">
-      <input type="text" name="" value="" placeholder="Zip Code"> within
-      <input type="number" name="" value=""> miles
-      <button id="searchBtn">Search</button>
+<div id="topForm" class="hidden">
+    <div class="input-group" >
+      <input class="form-control" type="search" name="" value="" placeholder="Zip Code" id="searchBar">
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-primary" id="searchBtn">Search</button>
+      </span>
+    </div>
     </div>
 
     <div id="storesList">

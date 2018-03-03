@@ -54,6 +54,7 @@ app.route('/api').get((req, res) => {
 
     brickseekoptions.form.upc = upcnum;
     brickseekoptions.form.sku = upcnum;
+    brickseekoptions.form.zip = req.query.zip;
 
     request.post(brickseekoptions, function (error, response, body) {
       //console.log(body);
