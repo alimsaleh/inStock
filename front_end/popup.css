@@ -19,6 +19,12 @@
     display: block;
     width: 50%;
 }
+#asinNum {
+ display: none;
+}
+#searchBtn {
+ margin-left: 5px;
+}
 
 body{
     min-width: 550px;
@@ -34,4 +40,3 @@ body{
 .btn:not(:disabled):not(.disabled) {
     cursor: default;
 }
-
