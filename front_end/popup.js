@@ -25,8 +25,13 @@ $( document ).ready(function() {
           data.forEach(function(store) {
             console.log(store.address + " " + store.quantity);
             //$("#storesList").append("<p>"+store.address+" "+store.ditance+" "+store.quantity+" "+store.price+" "+store.type+"</p>");
-            $("#storesTableBody").append('<tr><td><img src="'+store.type+'.png" alt="" class="img-fluid"></td><td valign="middle"><button type="button" class="btn btn-success store-btn">'+store.quantity+' in stock</button></td><td valign="middle"><button type="button" class="btn btn-info store-btn">'+store.price+'</button></td><td valign="middle"><button type="button" class="btn btn-warning store-btn">'+store.distance.replace(/[^0-9\.]/g,"")+' miles</button></td></tr><tr><td colspan="4"><p class="store-adr">'+store.address+'</p></td></tr>');
-         });
+            if (store.quantity <= 0) {
+              store.quantity = 0;
+              $("#storesTableBody").append('<tr><td><img src="'+store.type+'.png" alt="" class="img-fluid"></td><td valign="middle"><button type="button" class="btn btn-danger store-btn">'+store.quantity+' in stock</button></td><td valign="middle"><button type="button" class="btn btn-info store-btn">'+store.price+'</button></td><td valign="middle"><button type="button" class="btn btn-warning store-btn">'+store.distance.replace(/[^0-9\.]/g,"")+' miles</button></td></tr><tr><td colspan="4"><p class="store-adr">'+store.address+'</p></td></tr>');
+            } else {
+              $("#storesTableBody").append('<tr><td><img src="'+store.type+'.png" alt="" class="img-fluid"></td><td valign="middle"><button type="button" class="btn btn-success store-btn">'+store.quantity+' in stock</button></td><td valign="middle"><button type="button" class="btn btn-info store-btn">'+store.price+'</button></td><td valign="middle"><button type="button" class="btn btn-warning store-btn">'+store.distance.replace(/[^0-9\.]/g,"")+' miles</button></td></tr><tr><td colspan="4"><p class="store-adr">'+store.address+'</p></td></tr>');
+            }
+          });
       });
     });
 
